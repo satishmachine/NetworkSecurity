@@ -30,5 +30,5 @@ class ModelEvaluationConfig:
         pass
 
 class ModelPusherConfig:
-    def __init__(self);
+    def __init__(self):
         pass
