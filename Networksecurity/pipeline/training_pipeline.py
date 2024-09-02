@@ -16,7 +16,7 @@ from networksecurity.entity.config_entity import(
     DataIngestionConfig,
     DataValidationConfig,
     DataTransformationConfig,
-    ModelTrainerzConfig,
+    ModelTrainerConfig,
     ModelEvaluationConfig,
     ModelPusherConfig
 
