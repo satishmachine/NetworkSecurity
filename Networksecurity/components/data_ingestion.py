@@ -34,11 +34,11 @@ class DataIngestion():
             self.mongo_client = pymongo.MongoClient(MONGO_DB_URL)
             collection = self.mongo_client[database_name][collection_name]
 
-            df = pd.DataFrame(list(collection.find()))
-            if "_id" in df.column.to_list():
-                df = df.drop(columns = ["_id"], axis = 1)
+            df=pd.DataFrame(list(collection.find()))
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"], axis=1)
 
-            df.replace({"na": np.nan}, inplace = True)
+            df.replace({"na": np.nan}, inplace=True)
             return df
                 
         except Exception as e:
@@ -67,14 +67,14 @@ class DataIngestion():
                 "Exited split_data_as_train_test method of Data_ingestion class"
             )
             
-            dir_path = os.path.dirname(self.data_ingestion_config.taining_file_path)
+            dir_path = os.path.dirname(self.data_ingestion_config.training_file_path)
 
             os.makedirs(dir_path,exist_ok = True)
 
             logging.info(f"Exporting train and test file path. ")
 
             train_set.to_csv(
-                self.data_ingestion_config.trainig_file_path, index = False, header = True
+                self.data_ingestion_config.training_file_path, index = False, header = True
             )
 
             test_set.to_csv(
