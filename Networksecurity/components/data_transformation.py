@@ -89,13 +89,13 @@ class DataTransformation:
             logging.info("Got the preprocessor object")
 
             #training dataframe
-            input_feature_train_df = train_df.drop(columns = [[TARGET_COLUMN]], axis = 1)
-            target_feature_train_df = train_df(columns = [[TARGET_COLUMN]])
+            input_feature_train_df = train_df.drop(columns = [TARGET_COLUMN], axis = 1)
+            target_feature_train_df = train_df[TARGET_COLUMN]
             target_feature_train_df = target_feature_train_df.replace(-1, 0) 
 
             #testing dataframe
             input_feature_test_df = test_df.drop(columns = [TARGET_COLUMN], axis = 1)
-            target_feature_test_df = test_df([TARGET_COLUMN])
+            target_feature_test_df = test_df[TARGET_COLUMN]
             target_feature_test_df = target_feature_test_df.replace(-1, 0)
                
             preprocessor_object = preprocessor.fit(input_feature_train_df)
