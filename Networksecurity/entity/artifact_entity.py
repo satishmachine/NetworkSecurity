@@ -41,6 +41,3 @@ class ModelEvaluationArtifact:
 class ModelPusherArtifact:
     pass
 
-@dataclass
-class ClassificationMetricArtifact:
-    pass

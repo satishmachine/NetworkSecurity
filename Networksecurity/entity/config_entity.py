@@ -66,7 +66,7 @@ class DataTransformationConfig:
                 training_pipeline.PREPROCESSING_OBJECT_FILE_NAME)
             
 class ModelTrainerConfig:
-    def __init__(self, training_pipeline_config : TrainingPipelineConfig):
+      def __init__(self, training_pipeline_config : TrainingPipelineConfig):
         self.model_trainer_dir: str = os.path.join(
             training_pipeline_config.artifact_dir, training_pipeline.MODEL_TRAINER_DIR_NAME
         )

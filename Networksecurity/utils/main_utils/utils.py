@@ -54,7 +54,7 @@ def load_numpy_array_data(file_path:str)-> np.array:
     
 def save_object(file_path:str, obj:object)->None:
     try:
-        logging.info("Entered the save_object method of MainUtils class")
+        logging.info("Entered the save_object method of Main Utils class")
         os.makedirs(os.path.dirname(file_path), exist_ok= True)
         with open(file_path, "wb") as file_obj:
             pickle.dump(obj, file_obj)
@@ -64,7 +64,7 @@ def save_object(file_path:str, obj:object)->None:
 
 def load_object(file_path:str)->object:
     try:
-        if not os.path.exist(file_path):
+        if not os.path.exists(file_path):
             raise Exception(f"The file:{file_path} is not exists")
         with open(file_path, "rb") as file_obj:
             print(file_obj)
