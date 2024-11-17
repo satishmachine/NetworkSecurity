@@ -40,7 +40,7 @@ class ModelEvaluationArtifact:
     best_model_path:str
     trained_model_path:str
     train_model_metric_artifact:ClassificationMetricArtifact
-    test_model_metric_artifact:ClassificationMetricArtifact
+    best_model_metric_artifact:ClassificationMetricArtifact
 
     
 @dataclass
