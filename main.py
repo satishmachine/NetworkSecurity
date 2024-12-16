@@ -56,10 +56,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# route url
 @app.get("/", tags=["authentication"])
 async def index():
     return RedirectResponse(url="/docs")
 
+# Train url or Train route
 @app.get("/train")
 async def train_route():
     try:
@@ -72,11 +74,12 @@ async def train_route():
             raise NetworkSecurityException(e,sys)
     
 
+# Predict url or Pridict route
 @app.post("/predict")
 async def predict_route(request: Request,file: UploadFile = File(...)):
     try:
         df=pd.read_csv(file.file)
-        #print(df)
+        print(df)
         model = ModelResolver(model_dir=SAVED_MODEL_DIR)
         latest_model_path = model.get_best_model_path()
         latest_model = load_object(file_path=latest_model_path)
@@ -85,8 +88,9 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         df['predicted_column'].replace(-1, 0)
         #return df.to_json()
         table_html = df.to_html(classes='table table-striped')
-        #print(table_html)
-        #return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
+        print(table_html)
+        return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
+        '''
         return HTMLResponse(content=f"""
         <!DOCTYPE html>
         <html>
@@ -113,10 +117,11 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         </body>
         </html>
         """)
-        
+        '''
     except Exception as e:
             raise NetworkSecurityException(e,sys)
 
+            
 """def main():
     try:
         training_pipeline = TrainingPipeline()
