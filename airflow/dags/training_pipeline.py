@@ -21,7 +21,7 @@ with DAG(
     
 
     def training(**kwargs):
-
+        
         from networksecurity.pipeline.training_pipeline import TrainingPipeline
         training_obj = TrainingPipeline()
         training_obj.run_pipeline()
