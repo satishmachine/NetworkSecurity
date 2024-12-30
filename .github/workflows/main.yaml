@@ -86,10 +86,6 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
       
-      - name: Stop and remove Network_security container if running
-        run: |
-         docker ps -q --filter "name=Network_security" | grep -q . && docker stop Network_security && docker rm -fv Network_security
-      
       - name: Run Docker Image to serve users
         run: |
          docker run -d -p 80:8080 --name=Network_security -e 'MONGO_DB_URL=${{ secrets.MONGO_DB_URL }}' -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
