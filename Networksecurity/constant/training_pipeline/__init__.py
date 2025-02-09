@@ -82,4 +82,5 @@ MODEL_PUSHER_DIR_NAME = "model_pusher"
 MODEL_PUSHER_SAVED_MODEL_DIR = SAVED_MODEL_DIR
 
 TRAINING_BUCKET_NAME = "my.networksecurity"
-# PREDICITION_BUCKET_NAME = "Network-dataSource"
+PREDICITION_BUCKET_NAME = "my-network-datascource"
+PREDICTION_DIR = "prediction"
