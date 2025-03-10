@@ -27,9 +27,9 @@ with DAG(
         training_obj.run_pipeline()
 
     def sync_artifact_to_s3_bucket(**kwargs):
-        bucket_name = "my.network.security"
-        os.system(f"aws s3 sync/app/artifact s3://{bucket_name}/artifacts")
-        os.system(f"aws s3 sync/app/saved_models s3://{bucket_name}/saved_models")
+        bucket_name = "my.networksecurity"
+        os.system(f"aws s3 sync /app/artifact s3://{bucket_name}/artifacts")
+        os.system(f"aws s3 sync /app/saved_models s3://{bucket_name}/saved_models")
 
     training_pipeline = PythonOperator(
         task_id = "train_pipeline",

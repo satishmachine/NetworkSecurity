@@ -4,6 +4,9 @@ RUN mkdir /app
 COPY . /app/
 WORKDIR /app/
 RUN pip3 install -r requirements.txt
+ENV AWS_DEFAULT_REGION = "us-east-1"
+ENV BUCKET_NAME = "my.networksecurity"
+ENV PREDICTION_BUCKET_NAME = "my-network-datascource"
 
 
 ENV AIRFLOW_HOME="/app/airflow"
